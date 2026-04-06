@@ -7,7 +7,79 @@
     <title>btree-template</title>
   </head>
   <body>
-    <div id="root"></div>
+   <script>
+  let selected = "E"
+  let n = [
+    ["E", "E", "E", "E", "E", "E", "E", "E"],
+    ["invisible", "E", "E", "E", "E", "E", "E", "E", "E"],
+    ["E", "E", "E", "E", "E", "E", "E", "E"],
+    ["invisible", "E", "E", "E", "E", "E", "E", "E", "E"]
+  ]
+  function render(){
+      document.getElementById("app-root").innerHTML = ""
+    for (let item of n){
+        let div = document.createElement("div");
+          for (let i = 0; i < item.length; i++){
+              let ele = document.createElement("button");
+              ele.style.height = "50px";
+              ele.style.width = "50px";
+              ele.textContent = item[i];
+             
+              if (item[i] === "invisible"){
+                  ele.style.width = "15px";
+                  ele.style.backgroundColor = "white";
+                  ele.style.border = 0;
+                  ele.textContent = ""
+              } else {
+                   ele.addEventListener("click", () => {
+                      ele.textContent = selected;
+                      item[i] = selected;
+                      selected = "E"
+                  });
+              }
+              div.appendChild(ele)
+          }
+        document.getElementById("app-root").appendChild(div)
+        document.getElementById("app-root").appendChild(document.createElement("br"))
+    }
+  }
+  
+</script>
+<style>
+    *{
+        font-family: helvetica, sans-serif;
+    }
+    .big{
+        background-color: lightgreen;
+        height: 50px;
+        width: 50px;
+    }
+</style>
+<h1>HexaCity</h1>
+<p>Score: 0</p>
+<div>
+    <button class = "big">Play</button>
+<button class = "big">Pause</button>
+<button class = "big">Step</button>
+  <button onclick = "selected =  '👮'">Police station</button>
+  <button onclick = "selected =  '🏠'">Apartment</button>
+  <button onclick = "selected =  '🏥'">Hospital</button>
+  <button onclick = "selected = '🍽️'">resturaunt</button>
+  <button onclick = "selected = '🐷'">Farm</button>
+  <button onclick = "selected = '🛍️'">Store</button>
+</div>
+<br />
+
+<br />
+<div id = "app-root">
+  <div>
+  </div>
+
+</div>
+<h2 id = "fgsdf"></h2>
+<script>
+    render()
+</script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
