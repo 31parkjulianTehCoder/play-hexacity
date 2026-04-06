@@ -1,10 +1,10 @@
 <script>
-  let selected = " "
+  let selected = "E"
   let n = [
-    [" ", " ", " ", " ", " ", " ", " ", " "],
-    ["invisible", " ", " ", " ", " ", " ", " ", " ", " "],
-    [" ", " ", " ", " ", " ", " ", " ", " "],
-    ["invisible", " ", " ", " ", " ", " ", " ", " ", " "]
+    ["E", "E", "E", "E", "E", "E", "E", "E"],
+    ["invisible", "E", "E", "E", "E", "E", "E", "E", "E"],
+    ["E", "E", "E", "E", "E", "E", "E", "E"],
+    ["invisible", "E", "E", "E", "E", "E", "E", "E", "E"]
   ]
   function render(){
       document.getElementById("app-root").innerHTML = ""
@@ -25,7 +25,7 @@
                    ele.addEventListener("click", () => {
                       ele.textContent = selected;
                       item[i] = selected;
-                      selected = " "
+                      selected = "E"
                   });
               }
               div.appendChild(ele)
